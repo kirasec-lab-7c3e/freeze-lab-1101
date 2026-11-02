@@ -8,9 +8,3 @@ pull_request_rules:
 queue_rules:
   - name: default
     merge_conditions: []
-merge_protections:
-  - name: business-hours only
-    if:
-      - base=main
-    success_conditions:
-      - "schedule=Mon-Fri 09:00-17:00[Europe/Paris]"
