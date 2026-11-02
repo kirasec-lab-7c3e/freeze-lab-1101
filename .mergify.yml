@@ -1,11 +1,9 @@
-queue_rules:
-  - name: default
-    merge_conditions: []
-pull_request_rules:
-  - name: automatic queue
-    conditions:
+merge_protections_settings:
+  auto_merge_conditions:
+    - label=ready
+merge_protections:
+  - name: main needs a green build
+    if:
       - base=main
-      - label=ready
-    actions:
-      queue:
-        name: default
+    success_conditions:
+      - "-draft"
