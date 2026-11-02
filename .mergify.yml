@@ -1,13 +1,10 @@
+commands_restrictions:
+  merge:
+    conditions:
+      - sender=kirasec-research1
+  queue:
+    conditions:
+      - sender=kirasec-research1
 queue_rules:
   - name: default
-    batch_size: 2
-    batch_max_wait_time: 5 minutes
     merge_conditions: []
-pull_request_rules:
-  - name: automatic queue
-    conditions:
-      - base=main
-      - label=ready
-    actions:
-      queue:
-        name: default
