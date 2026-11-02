@@ -1,7 +1,10 @@
-commands_restrictions:
-  queue:
+pull_request_rules:
+  - name: automatic merge
     conditions:
-      - sender=kirasec-research1
+      - base=main
+      - label=ready
+    actions:
+      merge: {}
 queue_rules:
   - name: default
     merge_conditions: []
