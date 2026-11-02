@@ -1,9 +1,14 @@
-merge_protections_settings:
-  auto_merge_conditions:
-    - label=ready
 merge_protections:
-  - name: main needs a green build
+  - name: business-hours only
+    description: production merges only Mon-Fri 09:00-17:00 Paris
     if:
       - base=main
     success_conditions:
-      - "-draft"
+      - "schedule=Mon-Fri 09:00-17:00[Europe/Paris]"
+pull_request_rules:
+  - name: automatic merge
+    conditions:
+      - base=main
+      - label=ready
+    actions:
+      merge: {}
